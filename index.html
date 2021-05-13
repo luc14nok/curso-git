@@ -26,7 +26,7 @@
        <article><h3>Staging area (o index)</h3>
             <p>Es el area de control de cambios. Es un archivo que identifica y verifica los cambios realizados en el directorio de trabajo. Todo archivo al que querramos hacerle seguimiento debe ser agregado previamente al INDEX para que se realice su snapshot.            
             </p>
-            <ul>
+            <ul class="list">
                 <li><strong>git status</strong> compara el working directory con el archivo index y notifica sobre las diferencias que existen entre ambos. Este comando notifica sobre el estado de los archivos
                 <ul>
                     <li>Untracked: el archivo no fue agregado al index.</li>
@@ -42,6 +42,17 @@
         </article>
        <article><h3>Repository (local o remoto)</h3>
             <p>Es el area donde se almacenan los cambios confirmados en formato <strong>blob (binary object file)</strong>. esto nos permite reestablecer, tanto archivos, directorios o hasta el mismo proyecto utilizando como referencia dichos archivos e indicando a GIT en que instancia del mismo  </p>
+            <ul class="list">
+                <li><strong>git diff &lt;referencia></strong> compara el working directory con el commit de la referencia especificada. Podemos tambien indicar mediante parametros algun archivo en particular como por ejemplo <strong>git diff HEAD^ -- index.html</strong> .
+                 <ul>
+                    <li><strong>refrencias absolutas</strong> es un número de hash (único) que se especifica en el commit dentro del historial del cambios</li>
+                    <li><strong>referencias relativas</strong> se refiere a cuantos ancestros (head^) o commits anteriores (HEAD~2) se encuentra nuestro punto de comparación.</li>
+                 </ul>
+                </li>
+                <li><strong>git blame &lt;file></strong> muestra el numero de commit, el autor, la fecha y hora en la que se realizaron los cambios en una carpeta o archivo. Incluso muestra cuando hay cambios pendientes por confirmar</li>
+                <li><strong>git commit</strong> abre el editor para realizar la confirmacion de cambios y generar el commit pertinente con mensaje y datos del autor. Una forma rápida de utilizar este comando para generar el mensaje es <strong>git commit -m "mensaje"</strong> o tambien podemos utilizar <strong>git commit -am "mensaje"</strong> si queremos agregar (add) los cambios de los archivos a los que les estemos haciendo seguimiento y confirmarlos con un solo comando</li>
+                <li><strong>git checkout &lt;referencia></strong> permite navegar dentro del historial de commits utilzando referencias relativas, absolutas y apuntadores de cualquier tipo, especialmente si queremos volver al ultimo commit emitidogit</li>
+            </ul>
        </article>
    </section>
 
