@@ -26,6 +26,19 @@
        <article><h3>Staging area (o index)</h3>
             <p>Es el area de control de cambios. Es un archivo que identifica y verifica los cambios realizados en el directorio de trabajo. Todo archivo al que querramos hacerle seguimiento debe ser agregado previamente al INDEX para que se realice su snapshot.            
             </p>
+            <ul>
+                <li><strong>git status</strong> compara el working directory con el archivo index y notifica sobre las diferencias que existen entre ambos. Este comando notifica sobre el estado de los archivos
+                <ul>
+                    <li>Untracked: el archivo no fue agregado al index.</li>
+                    <li>Tracked: archivo al que se está haciendo seguimiento</li>
+                    <li>Modified: archivo que difiere con respecto a lo registrado en el index</li>
+                    <li>Commited: archivo cuyos cambios ya fueron confirmados</li>
+                </ul>
+                </li>
+                <li><strong>git add &lt;file></strong> agrega al area de control de cambios (INDEX) los archivos seleccionados, podemos acelerar esta tarea utilizando la expresion <strong>git add .</strong> , pero debemos tener en cuenta que esto agregará todos los cambios del directorio actual</li>
+                <li><strong>git rm --cached &lt;file></strong> remueve el archivo seleccionado del INDEX pero mantiene los cambios en el directorio de trabajo (WORKING DIRECTORY). Esto funciona en el caso que hayamos agregado el archivo al index y todavia no exista en el historial.</li>
+                <li><strong>git restore &lt;file></strong> reestablece el estado del archivo seleccionado a como se encontraba en el index antes de realizar los cambios.</li>
+            </ul>
         </article>
        <article><h3>Repository (local o remoto)</h3>
             <p>Es el area donde se almacenan los cambios confirmados en formato <strong>blob (binary object file)</strong>. esto nos permite reestablecer, tanto archivos, directorios o hasta el mismo proyecto utilizando como referencia dichos archivos e indicando a GIT en que instancia del mismo  </p>
